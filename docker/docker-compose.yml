@@ -1,0 +1,16 @@
+services:
+  agent-ops:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: agent-ops
+    hostname: agent-ops
+    # NET_ADMIN: UFW 가 iptables 규칙을 넣으려면 필요한 권한.
+    # 이게 없으면 ufw enable 이 "Permission denied" 로 실패한다.
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+    ports:
+      - "20022:20022"   # SSH (과제 요구: 22 -> 20022)
+      - "15034:15034"   # APP
+    restart: unless-stopped
