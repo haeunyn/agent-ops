@@ -59,9 +59,16 @@ setfacl -dm g:agent-core:rwx   "$LOG_DIR"
 
 echo "== 키 파일 생성 =="
 KEY_PATH="$AGENT_HOME/api_keys/t_secret.key"
+# 제공 바이너리는 secret.key 라는 이름을 찾는다. PDF 4쪽은 t_secret.key 로 적혀 있어
+# 두 이름을 모두 둔다(내용 동일). t_secret.key 는 ACL 차단 증거용으로 계속 사용.
+KEY_PATH_REAL="$AGENT_HOME/api_keys/secret.key"
 echo "agent_api_key_test" > "$KEY_PATH"
 chown agent-admin:agent-core "$KEY_PATH"
 chmod 640 "$KEY_PATH"    # 소유자 rw / 그룹 r / 나머지 없음
+
+echo "agent_api_key_test" > "$KEY_PATH_REAL"
+chown agent-admin:agent-core "$KEY_PATH_REAL"
+chmod 640 "$KEY_PATH_REAL"
 
 echo
 echo "== 확인 =="

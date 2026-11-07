@@ -2,3 +2,11 @@ __pycache__/
 *.pyc
 .DS_Store
 evidence_*.txt
+
+# 코디세이 제공 바이너리·배포물 — 공개 저장소에 올리지 않는다.
+# 과정 자료 재배포가 되고, 저장소 용량도 커진다.
+agent-app.zip
+agent-app-leak.zip
+agent-app-linux-*
+agent-leak-app-*
+app/

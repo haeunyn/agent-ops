@@ -20,7 +20,7 @@ cat > "$ENV_FILE" <<ENV
 export AGENT_HOME="$AGENT_HOME"
 export AGENT_PORT=15034
 export AGENT_UPLOAD_DIR="\$AGENT_HOME/upload_files"
-export AGENT_KEY_PATH="\$AGENT_HOME/api_keys/t_secret.key"
+export AGENT_KEY_PATH="\$AGENT_HOME/api_keys"   # 제공 바이너리는 '디렉토리'를 기대한다 (PDF 4쪽은 파일 경로로 적혀 있으나 실제 앱과 불일치)
 export AGENT_LOG_DIR=/var/log/agent-app
 # monitor.sh 가 감시할 프로세스 이름.
 # 코디세이가 제공하는 실제 앱(agent-app-linux-arm64 등)을 쓸 때는 이 값만 바꾸면 된다.
